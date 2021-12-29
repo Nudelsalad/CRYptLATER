@@ -1,0 +1,10 @@
+C:\Users\jonas\Documents\PT3\CRYptLATER\CRYptLATER\bin\Debug\CRYptLATER.exe.config
+C:\Users\jonas\Documents\PT3\CRYptLATER\CRYptLATER\bin\Debug\CRYptLATER.exe
+C:\Users\jonas\Documents\PT3\CRYptLATER\CRYptLATER\bin\Debug\CRYptLATER.pdb
+C:\Users\jonas\Documents\PT3\CRYptLATER\CRYptLATER\obj\Debug\CRYptLATER.csproj.AssemblyReference.cache
+C:\Users\jonas\Documents\PT3\CRYptLATER\CRYptLATER\obj\Debug\CRYptLATER.Properties.Resources.resources
+C:\Users\jonas\Documents\PT3\CRYptLATER\CRYptLATER\obj\Debug\CRYptLATER.csproj.GenerateResource.cache
+C:\Users\jonas\Documents\PT3\CRYptLATER\CRYptLATER\obj\Debug\CRYptLATER.csproj.CoreCompileInputs.cache
+C:\Users\jonas\Documents\PT3\CRYptLATER\CRYptLATER\obj\Debug\CRYptLATER.exe
+C:\Users\jonas\Documents\PT3\CRYptLATER\CRYptLATER\obj\Debug\CRYptLATER.pdb
+C:\Users\jonas\Documents\PT3\CRYptLATER\CRYptLATER\obj\Debug\CRYptLATER.mainWindow.resources
