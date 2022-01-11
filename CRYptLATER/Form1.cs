@@ -13,12 +13,12 @@ namespace CRYptLATER
     public partial class mainWindow : Form
     {
 
-
-        //global variable
+        //global variables
         int indexDeEncryption;
         int shifftingRounds = 1;
         bool statusPlayPause = true;
-
+        
+        //Decryption/Encryption status variables
         enum DeEncryption
         {
             textToText,
@@ -34,12 +34,13 @@ namespace CRYptLATER
 
 
 
+        //Menu initialization and Methods
         private void initializeTreeView()
         {
 
             TreeNode rootNode;
 
-            DirectoryInfo info = new DirectoryInfo(@"../../../../../../../../");
+            DirectoryInfo info = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile));
             if (info.Exists)
             {
                 rootNode = new TreeNode(info.Name);
@@ -77,13 +78,8 @@ namespace CRYptLATER
                     {
                         aNode.Nodes.Add(new TreeNode(file.Name) { ImageIndex = 1 });
                     }
-
-
                 }
-                catch (Exception e)
-                {
-
-                }
+                catch (Exception e) { }
 
             }
 
@@ -109,137 +105,13 @@ namespace CRYptLATER
 
         }
 
-
         public mainWindow()
         {
             InitializeComponent();
-            //initializeTreeView();
+            initializeTreeView();
             setStatusButtonPlayPause();
             resetColorDeEncryptionButton();
             toTextButton.BackColor = Color.Blue;
-
-        }
-
-        //global variable encoder/decoder
-
-        private void button_DeEncryption_Click(object sender, EventArgs e)
-        {
-            bool buttonPushed = sender.Equals(this.toHexButton);
-            Console.WriteLine($"Gedrueckter Button: {buttonPushed}");
-            resetColorDeEncryptionButton();
-            if (sender.Equals(this.toHexButton))
-            {
-                indexDeEncryption = (int)DeEncryption.toHex;
-                toHexButton.BackColor = Color.Blue;
-            }
-            else if (sender.Equals(this.FromHexButton))
-            {
-                indexDeEncryption = (int)DeEncryption.fromHex;
-                FromHexButton.BackColor = Color.Blue;
-            }
-            else if (sender.Equals(this.toBase64Button))
-            {
-                indexDeEncryption = (int)DeEncryption.toBase64;
-                toBase64Button.BackColor = Color.Blue;
-            }
-            else if (sender.Equals(this.fromBase64Button))
-            {
-                indexDeEncryption = (int)DeEncryption.fromBase64;
-                fromBase64Button.BackColor = Color.Blue;
-            }
-            else if (sender.Equals(this.toShiftbutton))
-            {
-                indexDeEncryption = (int)DeEncryption.toShift;
-                toShiftbutton.BackColor = Color.Blue;
-            }
-            else if (sender.Equals(this.fromShiftButton))
-            {
-                indexDeEncryption = (int)DeEncryption.fromShift;
-                fromShiftButton.BackColor = Color.Blue;
-            }
-            else if (sender.Equals(this.toTextButton))
-            {
-                indexDeEncryption = -1;
-                toTextButton.BackColor = Color.Blue;
-
-            }
-            else if (sender.Equals(this.decryptionButton))
-            {
-                indexDeEncryption = (int)DeEncryption.decryption;
-                toTextButton.BackColor = Color.Blue;
-
-            }
-            else if (sender.Equals(this.encryptionButton))
-            {
-                indexDeEncryption = (int)DeEncryption.encryption;
-                toTextButton.BackColor = Color.Blue;
-
-            }
-            
-
-            DeEncrypt();
-
-        }
-
-        public void DeEncrypt()
-        {
-            switch (indexDeEncryption)
-            {
-                case (int)DeEncryption.toBase64:
-                    //ToBase64
-                    textBox2.Text = Base64Encode(textBox1.Text);
-                    break;
-
-                case (int)DeEncryption.fromBase64:
-                    //FromBase64
-                    textBox2.Text = Base64Decode(textBox1.Text);
-                    break;
-
-                case (int)DeEncryption.toHex:
-                    //ToHex
-                    textBox2.Text = HexEncode(textBox1.Text);
-                    break;
-
-                case (int)DeEncryption.fromHex:
-                    //FromHex
-                    textBox2.Text = HexDecode(textBox1.Text);
-                    break;
-
-                case (int)DeEncryption.toShift:
-                    //FromHex
-                    textBox2.Text = ShiftEncode(textBox1.Text, shifftingRounds);
-                    break;
-
-                case (int)DeEncryption.fromShift:
-                    //FromHex
-                    textBox2.Text = ShiftDecode(textBox1.Text, shifftingRounds);
-                    break;
-
-                
-
-                case (int)DeEncryption.decryption:
-                    if (passwordTextBox.Text == "") break;
-
-                    textBox2.Text = StringCipher.Decrypt(textBox1.Text.ToString(), passwordTextBox.Text.ToString());
-                    break;
-
-                case (int)DeEncryption.encryption:
-
-                    if (passwordTextBox.Text == "") break;
-
-                    string text = textBox1.Text;
-                    string password = passwordTextBox.Text;
-
-
-                    textBox2.Text = StringCipher.Encrypt(text, password);
-                    break;
-
-                default:
-                    //no Encoding/Encryption chosen
-                    textBox2.Text = textBox1.Text;
-                    break;
-
-            }
 
         }
 
@@ -255,11 +127,23 @@ namespace CRYptLATER
         {
             string filepathTreeNoderelative = e.Node.FullPath;
             string fileExtension = Path.GetExtension(filepathTreeNoderelative);
+            string filePathUserDir = "C:\\Users\\";
+
+            string fullPath = filePathUserDir + filepathTreeNoderelative;
 
             if (fileExtension.Equals(".txt"))
             {
                 Console.WriteLine($"Filepath: {filepathTreeNoderelative}");
-                textBox1.Text = File.ReadAllText(filepathTreeNoderelative);
+                Console.WriteLine($"Filepath: {filePathUserDir}");
+                Console.WriteLine($"Filepath: {fullPath}");
+
+                try
+                {
+                    textBox1.Text = File.ReadAllText(fullPath);
+                }catch(Exception error)
+                {
+                    //ErrorMessage
+                }
             }
 
         }
@@ -322,7 +206,6 @@ namespace CRYptLATER
 
         }
 
-
         private void Menu_Copy(System.Object sender, System.EventArgs e)
         {
             if (textBox1.SelectionLength > 0)
@@ -377,6 +260,25 @@ namespace CRYptLATER
             if (textBox2.SelectedText != "")
                 textBox2.Cut();
         }
+        private void shifftingRoundsPlusButton_Click(object sender, EventArgs e)
+        {
+
+            shifftingRounds++;
+            roundCounter.Text = shifftingRounds.ToString();
+
+        }
+        private void shifftingRoundsMinusButton_Click(object sender, EventArgs e)
+        {
+            if (shifftingRounds > 1) shifftingRounds--;
+            roundCounter.Text = shifftingRounds.ToString();
+        }
+
+        private void playPauseButton_Click(object sender, EventArgs e)
+        {
+            statusPlayPause = !statusPlayPause;
+            setStatusButtonPlayPause();
+        }
+
 
         private void Menu_Paste2(System.Object sender, System.EventArgs e)
         {
@@ -398,7 +300,126 @@ namespace CRYptLATER
             MessageBox.Show("Content of lower textbox has been copied to clipboard");
         }
 
- 
+
+        private void button_DeEncryption_Click(object sender, EventArgs e)
+        {
+            bool buttonPushed = sender.Equals(this.toHexButton);
+            Console.WriteLine($"Gedrueckter Button: {buttonPushed}");
+            resetColorDeEncryptionButton();
+            if (sender.Equals(this.toHexButton))
+            {
+                indexDeEncryption = (int)DeEncryption.toHex;
+                toHexButton.BackColor = Color.Blue;
+            }
+            else if (sender.Equals(this.FromHexButton))
+            {
+                indexDeEncryption = (int)DeEncryption.fromHex;
+                FromHexButton.BackColor = Color.Blue;
+            }
+            else if (sender.Equals(this.toBase64Button))
+            {
+                indexDeEncryption = (int)DeEncryption.toBase64;
+                toBase64Button.BackColor = Color.Blue;
+            }
+            else if (sender.Equals(this.fromBase64Button))
+            {
+                indexDeEncryption = (int)DeEncryption.fromBase64;
+                fromBase64Button.BackColor = Color.Blue;
+            }
+            else if (sender.Equals(this.toShiftbutton))
+            {
+                indexDeEncryption = (int)DeEncryption.toShift;
+                toShiftbutton.BackColor = Color.Blue;
+            }
+            else if (sender.Equals(this.fromShiftButton))
+            {
+                indexDeEncryption = (int)DeEncryption.fromShift;
+                fromShiftButton.BackColor = Color.Blue;
+            }
+            else if (sender.Equals(this.toTextButton))
+            {
+                indexDeEncryption = -1;
+                toTextButton.BackColor = Color.Blue;
+
+            }
+            else if (sender.Equals(this.decryptionButton))
+            {
+                indexDeEncryption = (int)DeEncryption.decryption;
+                toTextButton.BackColor = Color.Blue;
+
+            }
+            else if (sender.Equals(this.encryptionButton))
+            {
+                indexDeEncryption = (int)DeEncryption.encryption;
+                toTextButton.BackColor = Color.Blue;
+
+            }
+
+            DeEncrypt();
+        }
+
+        public void DeEncrypt()
+        {
+            try
+            {
+                switch (indexDeEncryption)
+                {
+                    case (int)DeEncryption.toBase64:
+                        //ToBase64
+                        textBox2.Text = Base64Encode(textBox1.Text);
+                        break;
+
+                    case (int)DeEncryption.fromBase64:
+                        //FromBase64
+                        textBox2.Text = Base64Decode(textBox1.Text);
+                        break;
+
+                    case (int)DeEncryption.toHex:
+                        //ToHex
+                        textBox2.Text = HexEncode(textBox1.Text);
+                        break;
+
+                    case (int)DeEncryption.fromHex:
+                        //FromHex
+                        textBox2.Text = HexDecode(textBox1.Text);
+                        break;
+
+                    case (int)DeEncryption.toShift:
+                        //FromHex
+                        textBox2.Text = ShiftEncode(textBox1.Text, shifftingRounds);
+                        break;
+
+                    case (int)DeEncryption.fromShift:
+                        //FromHex
+                        textBox2.Text = ShiftDecode(textBox1.Text, shifftingRounds);
+                        break;
+
+                    case (int)DeEncryption.decryption:
+                        if (passwordTextBox.Text == "") break;
+
+                        textBox2.Text = StringCipher.Decrypt(textBox1.Text.ToString(), passwordTextBox.Text.ToString());
+                        break;
+
+                    case (int)DeEncryption.encryption:
+
+                        if (passwordTextBox.Text == "") break;
+                        string text = textBox1.Text;
+                        string password = passwordTextBox.Text;
+                        textBox2.Text = StringCipher.Encrypt(text, password);
+                        break;
+
+                    default:
+                        //no Encoding/Encryption chosen
+                        textBox2.Text = textBox1.Text;
+                        break;
+                }
+            }catch(Exception error)
+            {
+                MessageBox.Show("Choose another algorithm or password");
+            }
+
+        }
+
 
         //BASE64
 
@@ -433,6 +454,8 @@ namespace CRYptLATER
 
             return Encoding.Unicode.GetString(bytes);
         }
+
+        //Shiffting Methods
 
         public static string ShiftEncode(string plainText, int rounds)
         {
@@ -492,33 +515,8 @@ namespace CRYptLATER
             return ShiftDecode(sb.ToString(), rounds - 1);
         }
 
-        private void shifftingRoundsPlusButton_Click(object sender, EventArgs e)
-        {
-            
-            shifftingRounds++;
-            roundCounter.Text = shifftingRounds.ToString();
-
-        }
-        private void shifftingRoundsMinusButton_Click(object sender, EventArgs e)
-        {
-            if (shifftingRounds > 1) shifftingRounds--;
-            roundCounter.Text = shifftingRounds.ToString();
-        }
-
-        private void playPauseButton_Click(object sender, EventArgs e)
-        {
-            statusPlayPause = !statusPlayPause;
-            setStatusButtonPlayPause();
-        }
-
         //link: https://stackoverflow.com/questions/10168240/encrypting-decrypting-a-string-in-c-sharp
 
-
-        
-
     }
-
-    
-
 
 }

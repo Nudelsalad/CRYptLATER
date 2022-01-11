@@ -124,8 +124,8 @@ namespace CRYptLATER
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1171, 700);
-            this.splitContainer1.SplitterDistance = 236;
+            this.splitContainer1.Size = new System.Drawing.Size(937, 560);
+            this.splitContainer1.SplitterDistance = 188;
             this.splitContainer1.TabIndex = 0;
             // 
             // treeView1
@@ -136,7 +136,7 @@ namespace CRYptLATER
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
             this.treeView1.SelectedImageIndex = 1;
-            this.treeView1.Size = new System.Drawing.Size(236, 700);
+            this.treeView1.Size = new System.Drawing.Size(188, 560);
             this.treeView1.TabIndex = 0;
             this.treeView1.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseDoubleClick);
             // 
@@ -177,8 +177,8 @@ namespace CRYptLATER
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainer2.Size = new System.Drawing.Size(931, 700);
-            this.splitContainer2.SplitterDistance = 253;
+            this.splitContainer2.Size = new System.Drawing.Size(745, 560);
+            this.splitContainer2.SplitterDistance = 202;
             this.splitContainer2.TabIndex = 0;
             // 
             // encryptionLabel
@@ -368,8 +368,8 @@ namespace CRYptLATER
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.toolStripContainer1);
-            this.splitContainer3.Size = new System.Drawing.Size(674, 700);
-            this.splitContainer3.SplitterDistance = 329;
+            this.splitContainer3.Size = new System.Drawing.Size(539, 560);
+            this.splitContainer3.SplitterDistance = 263;
             this.splitContainer3.TabIndex = 0;
             // 
             // toolStripContainer2
@@ -378,11 +378,11 @@ namespace CRYptLATER
             // toolStripContainer2.ContentPanel
             // 
             this.toolStripContainer2.ContentPanel.Controls.Add(this.textBox1);
-            this.toolStripContainer2.ContentPanel.Size = new System.Drawing.Size(843, 363);
+            this.toolStripContainer2.ContentPanel.Size = new System.Drawing.Size(539, 236);
             this.toolStripContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer2.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer2.Name = "toolStripContainer2";
-            this.toolStripContainer2.Size = new System.Drawing.Size(674, 329);
+            this.toolStripContainer2.Size = new System.Drawing.Size(539, 263);
             this.toolStripContainer2.TabIndex = 0;
             this.toolStripContainer2.Text = "toolStripContainer2";
             // 
@@ -397,7 +397,7 @@ namespace CRYptLATER
             this.textBox1.Location = new System.Drawing.Point(0, 0);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(843, 363);
+            this.textBox1.Size = new System.Drawing.Size(539, 236);
             this.textBox1.TabIndex = 0;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -550,11 +550,11 @@ namespace CRYptLATER
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.textBox2);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(843, 410);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(539, 266);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(674, 367);
+            this.toolStripContainer1.Size = new System.Drawing.Size(539, 293);
             this.toolStripContainer1.TabIndex = 0;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -568,7 +568,7 @@ namespace CRYptLATER
             this.textBox2.Location = new System.Drawing.Point(0, 0);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(843, 410);
+            this.textBox2.Size = new System.Drawing.Size(539, 266);
             this.textBox2.TabIndex = 0;
             // 
             // toolStrip2
@@ -586,7 +586,7 @@ namespace CRYptLATER
             this.toolStripSeparator1});
             this.toolStrip2.Location = new System.Drawing.Point(4, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(249, 39);
+            this.toolStrip2.Size = new System.Drawing.Size(199, 27);
             this.toolStrip2.TabIndex = 0;
             // 
             // saveToolStripButton
@@ -595,7 +595,7 @@ namespace CRYptLATER
             this.saveToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripButton.Image")));
             this.saveToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveToolStripButton.Name = "saveToolStripButton";
-            this.saveToolStripButton.Size = new System.Drawing.Size(29, 36);
+            this.saveToolStripButton.Size = new System.Drawing.Size(29, 24);
             this.saveToolStripButton.Text = "&Save";
             this.saveToolStripButton.Click += new System.EventHandler(this.saveButton2_Click);
             // 
@@ -605,13 +605,13 @@ namespace CRYptLATER
             this.printToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("printToolStripButton.Image")));
             this.printToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.printToolStripButton.Name = "printToolStripButton";
-            this.printToolStripButton.Size = new System.Drawing.Size(29, 36);
+            this.printToolStripButton.Size = new System.Drawing.Size(29, 24);
             this.printToolStripButton.Text = "&Print";
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(6, 39);
+            this.toolStripSeparator.Size = new System.Drawing.Size(6, 27);
             // 
             // cutButton2
             // 
@@ -619,7 +619,7 @@ namespace CRYptLATER
             this.cutButton2.Image = ((System.Drawing.Image)(resources.GetObject("cutButton2.Image")));
             this.cutButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.cutButton2.Name = "cutButton2";
-            this.cutButton2.Size = new System.Drawing.Size(29, 36);
+            this.cutButton2.Size = new System.Drawing.Size(29, 24);
             this.cutButton2.Text = "C&ut";
             this.cutButton2.Click += new System.EventHandler(this.Menu_Cut2);
             // 
@@ -629,7 +629,7 @@ namespace CRYptLATER
             this.copyButton2.Image = ((System.Drawing.Image)(resources.GetObject("copyButton2.Image")));
             this.copyButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.copyButton2.Name = "copyButton2";
-            this.copyButton2.Size = new System.Drawing.Size(29, 36);
+            this.copyButton2.Size = new System.Drawing.Size(29, 24);
             this.copyButton2.Text = "&Copy";
             this.copyButton2.Click += new System.EventHandler(this.Menu_Copy);
             // 
@@ -639,7 +639,7 @@ namespace CRYptLATER
             this.pasteButton2.Image = ((System.Drawing.Image)(resources.GetObject("pasteButton2.Image")));
             this.pasteButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.pasteButton2.Name = "pasteButton2";
-            this.pasteButton2.Size = new System.Drawing.Size(29, 36);
+            this.pasteButton2.Size = new System.Drawing.Size(29, 24);
             this.pasteButton2.Text = "&Paste";
             this.pasteButton2.Click += new System.EventHandler(this.Menu_Paste2);
             // 
@@ -649,14 +649,14 @@ namespace CRYptLATER
             this.ClipButton2.Image = ((System.Drawing.Image)(resources.GetObject("ClipButton2.Image")));
             this.ClipButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ClipButton2.Name = "ClipButton2";
-            this.ClipButton2.Size = new System.Drawing.Size(29, 36);
+            this.ClipButton2.Size = new System.Drawing.Size(29, 24);
             this.ClipButton2.Text = "toolStripButton3";
             this.ClipButton2.Click += new System.EventHandler(this.clipButton2_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // BottomToolStripPanel
             // 
