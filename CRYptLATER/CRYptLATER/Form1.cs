@@ -68,7 +68,7 @@ namespace CRYptLATER
                 {
                     subSubDirs = subDir.GetDirectories();
 
-                    if (subSubDirs.Length != 0 && subSubDirs.ToString()[0] != '.')
+                    if (subSubDirs.Length != 0)
                     {
                         GetDirectories(subSubDirs, aNode);
                     }
@@ -242,9 +242,7 @@ namespace CRYptLATER
         {
             if (textBox1.CanUndo == true)
             {
-                // Undo the last operation.
                 textBox1.Undo();
-                // Clear the undo buffer to prevent last action from being redone.
                 textBox1.ClearUndo();
             }
         }
@@ -463,7 +461,6 @@ namespace CRYptLATER
             var sb = new StringBuilder();
             char[] alphabet = new char[26] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
             
-
             foreach (char Charakter in lowerplaintText)
             {
                 for (int i = 0; i < 26; i++)
