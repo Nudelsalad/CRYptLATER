@@ -52,6 +52,9 @@ namespace CRYptLATER
             }
         }
 
+
+        //TODO:FEHLer abfangen, dass falls man auto aktiviert hat und dann nicht verschluesseltes Zeug hineinkopiert das programm nicht abstuerzt.
+
         public static string Decrypt(string cipherText, string passPhrase)
         {
             // Get the complete stream of bytes that represent:
